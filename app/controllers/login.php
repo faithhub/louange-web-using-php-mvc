@@ -33,7 +33,7 @@ class Login extends Controller
 
       $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
       $email = trim($_POST['email']);
-      $password = ($_POST['password']);
+      $password = trim($_POST['password']);
 
 
       $user = User::where(['email' => $email])->first();
@@ -64,6 +64,7 @@ class Login extends Controller
     $_SESSION['userId'] = $user->id;
     $_SESSION['userEmail'] = $user->email;
     $_SESSION['userName'] = $user->name;
+    $_SESSION['userAvatar'] = $user->avatar;
     redirect('/admin');
   }
 }

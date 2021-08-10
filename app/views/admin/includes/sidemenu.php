@@ -1,8 +1,8 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
-  <a href="index3.html" class="brand-link">
-    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+  <a href="<?php echo URLROOT ?>/admin" class="brand-link">
+    <img src="assets/img/favicon.png" alt="<?php echo $_SESSION['userName'] ?>" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Admin Dashboard</span>
   </a>
 
@@ -11,7 +11,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <img src="<?php echo 'upload/' . $_SESSION['userAvatar'] ?? 'dist/img/AdminLTELogo.png' ?>" class="img-circle elevation-2" alt="<?php echo $_SESSION['userName'] ?>">
       </div>
       <div class="info">
         <a href="#" class="d-block"><?php echo $_SESSION['userName'] ?></a>
@@ -24,7 +24,9 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-          <a href="<?php echo URLROOT ?>" class="nav-link active">
+          <a href="<?php echo URLROOT ?>/admin" class="nav-link <?php if ($data['page'] == 'dashboard') {
+                                                                  echo 'active';
+                                                                } ?>">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -32,7 +34,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo URLROOT ?>" class="nav-link">
+          <a href="<?php echo URLROOT ?>/all_affiliates" class="nav-link <?php if ($data['page'] == 'affiliate') {
+                                                                            echo 'active';
+                                                                          } ?>">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Affiliates
@@ -40,7 +44,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo URLROOT ?>" class="nav-link">
+          <a href="<?php echo URLROOT ?>/profile" class="nav-link <?php if ($data['page'] == 'profile') {
+                                                                    echo 'active';
+                                                                  } ?>">
             <i class="nav-icon fas fa-user"></i>
             <p>
               Profile
@@ -48,7 +54,9 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo URLROOT ?>" class="nav-link">
+          <a href="<?php echo URLROOT ?>/changepassword" class="nav-link <?php if ($data['page'] == 'password') {
+                                                                            echo 'active';
+                                                                          } ?>">
             <i class="nav-icon fas fa-key"></i>
             <p>
               Change Password

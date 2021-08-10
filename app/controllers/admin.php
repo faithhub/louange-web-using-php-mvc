@@ -16,8 +16,9 @@ class Admin extends Controller
 
   public function index()
   {
-    $data['title'] = "Admin Login";
-    $data['page'] = "about";
+    $data['title'] = "Admin Dashboard";
+    $data['page'] = "dashboard";
+    $data['affiliates'] = Affiliate::all();
     return $this->view('admin/index', $data);
   }
 }

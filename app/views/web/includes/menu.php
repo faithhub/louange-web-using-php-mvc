@@ -5,7 +5,7 @@
         <div class="main-menu-wrap">
           <!-- logo -->
           <div class="site-logo">
-            <a href="index.html">
+            <a href="<?php echo URLROOT ?>">
               <img src="assets/img/Logo_LHI.jpg" alt="">
             </a>
           </div>
@@ -26,6 +26,9 @@
               <li class="<?php if ($data['page'] == 'gallery') {
                             echo 'current-list-item';
                           } ?>"><a href="<?php echo URLROOT ?>/gallery">Herbs Gallery</a></li>
+              <li class="<?php if ($data['page'] == 'all_affiliate') {
+                            echo 'current-list-item';
+                          } ?>"><a href="<?php echo URLROOT ?>/all_affiliate">Affiliates</a></li>
               <li class="<?php if ($data['page'] == 'contact') {
                             echo 'current-list-item';
                           } ?>"><a href="<?php echo URLROOT ?>/contact">Contact</a></li>
@@ -38,7 +41,11 @@
               </div>
             </ul>
           </nav>
-
+          <?php if ($data['page'] == 'gallery') {
+          ?>
+            <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+          <?php
+          } ?>
           <div class="mobile-menu"></div>
           <!-- menu end -->
         </div>
@@ -46,3 +53,24 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- search area -->
+<div class="search-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <span class="close-btn"><i class="fas fa-window-close"></i></span>
+        <div class="search-bar">
+          <div class="search-bar-tablecell">
+            <h3>Search For:</h3>
+            <input type="text" placeholder="Keywords">
+            <button type="submit">Search <i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end search arewa -->
