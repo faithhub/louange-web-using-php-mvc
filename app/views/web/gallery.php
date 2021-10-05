@@ -488,6 +488,9 @@
 		<script>
 			function search_animal() {
 				let input = document.getElementById('searchbar').value
+				if(input == ''){
+					location.reload()
+				}
 				input = input.toLowerCase();
 				let x = document.getElementsByTagName('h4');
 				// console.log(document.getElementById("gallery_details").outerHTML)
